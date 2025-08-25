@@ -1,6 +1,6 @@
 name: Simple Workflow
 
-run-name: "CI Tests – ${{ github.event_name }} by ${{ github.actor }}"
+run-name: "CI Tests – Project A"
 
 # Controls when the workflow will run
 on:
