@@ -2,7 +2,8 @@ name: Deploy Workflow
 
 on:
   push:
-    branches: "main"
+    branches: # list expected
+      - main
   workflow_dispatch:
 
 jobs:
@@ -12,11 +13,11 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          cache: "npm"
+          cache: npm
           node-version: 24
       - run: npm ci
       - run: npm run build
       - uses: actions/upload-artifact@v6
         with:
-          name: dict
-          path: dict/
+          name: dist
+          path: dist/
