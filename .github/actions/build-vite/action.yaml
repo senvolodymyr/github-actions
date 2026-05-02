@@ -27,6 +27,6 @@ runs:
       shell: bash
     - name: Upload dist
       uses: actions/upload-artifact@v6
-        with:
-          name: ${{ inputs.artifact-name }}
-          path: dist/
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: dist/

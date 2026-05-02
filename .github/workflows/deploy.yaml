@@ -23,7 +23,7 @@ jobs:
           path: dist/
       - uses: aws-actions/configure-aws-credentials@v6.1.0
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secret.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # secretS
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # secretS
           aws-region: us-east-1
       - run: aws s3 sync dist/ s3://my-bucket --delete
