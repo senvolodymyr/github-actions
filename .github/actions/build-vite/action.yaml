@@ -1,0 +1,32 @@
+name: Build Vite
+description: Install dependencies with npm cache and build the static site
+
+inputs:
+  node-version:
+    description: Version of the node
+    required: false
+    default: 24
+  artifact-name:
+    description: Name to five the uploaded artifact
+    required: false
+    default: dist
+
+runs:
+  using: composite # reusable bundle of workflow steps
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v6
+      with:
+        cache: npm # not every language support this
+        node-version: ${{ inputs.node-version }}
+    - name: Install
+      run: npm ci
+      shell: bash
+    - name: Build
+      run: npm run build
+      shell: bash
+    - name: Upload dist
+      uses: actions/upload-artifact@v6
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: dist/
