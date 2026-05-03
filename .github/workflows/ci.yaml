@@ -7,5 +7,4 @@ on:
 
 jobs:
   build:
-    environment: production
     uses: ./.github/workflows/_build.yaml
