@@ -8,6 +8,7 @@ on:
         required: false
         default: 24
         type: string
+
       artifact-name:
         description: Name to five the uploaded artifact
         required: false
